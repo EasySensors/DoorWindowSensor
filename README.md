@@ -5,7 +5,7 @@
 
 ### The Wireless Door/Window  Sensor (CW1DB3A) Detects if window or door is opened . It is basd on Arduino IDE compatible (the Atmel ATMega328P 8Mhz) microcontroller with HopeRF RFM69 868\915 or NRF24L01+ 2.4 GHz radio on-board. Best sutable for Home Automation, IOT. You may think of it as Arduino Pro Mini plus all the items in the picture below:
 
-![](https://github.com/EasySensors/switchBox/blob/master/pics/replace2.jpg?raw=true)
+![](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/replace.jpg?raw=true)
 
 
 ## Specification: ##
