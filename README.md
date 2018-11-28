@@ -1,6 +1,5 @@
 ![arduino Door Window Sensor](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_pcb_with_enclosure.jpg?raw=true)
-![arduino Door Window Sensor](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_top_rfm69.jpg	
-?raw=true)
+![arduino Door Window Sensor](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_top_rfm69.jpg?raw=true)
 ![arduino Door Windo wSensor](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_bottom_nrf.jpg?raw=true)
 ![arduino Door Window Sensor](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_enclosure.jpg?raw=true)
 
