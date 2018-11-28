@@ -1,6 +1,8 @@
-![arduino Switch Box](https://github.com/EasySensors/switchBox/blob/master/pics/arduino-Switch-Box-2cr.jpg?raw=true)
-![arduino Switch Box](https://github.com/EasySensors/switchBox/blob/master/pics/arduino-Switch-Box-21cr.jpg?raw=true)
-![arduino Switch Box](https://github.com/EasySensors/switchBox/blob/master/pics/arduino-Switch-Box-22cr.jpg?raw=true)
+![arduino Switch Box](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_pcb_with_enclosure.jpg?raw=true)
+![arduino Switch Box](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_top_rfm69.jpg	
+?raw=true)
+![arduino Switch Box](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_bottom_nrf.jpg?raw=true)
+![arduino Switch Box](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/DoorWindowSensor_enclosure.jpg?raw=true)
 
 ### The Wireless Door/Window  Sensor (CW1DB3A) Detects if window or door is opened . It is basd on Arduino IDE compatible (the Atmel ATMega328P 8Mhz) microcontroller with HopeRF RFM69 868\915 or NRF24L01+ 2.4 GHz radio on-board. Best sutable for Home Automation, IOT. You may think of it as Arduino Pro Mini plus all the items in the picture below:
 
