@@ -10,11 +10,11 @@
 - Programming header is FTDI, TTL Serial. For programming you need to have USB TTL Serial – FTDI adaptor
 - Battery voltage sensor (via divider)
 - MySensors compatible. You can use superb set of scripts and libraries from [mysensors.org](http://www.mysensors.org) project  and convert the nodes into reliable network of little home sensors, relays and actuators.
-
 - LED indicator
 - Battery connectors: 2 x AAA batteries
 - Reverse polarity protection
-- Expected life time 3-5 years
+- Sleep current is 3 uA
+- Expected life time 3-5 years or more if good batteries used.
 
 Comes with Arduino example sketch door.ino. It uses [MySensors](https://www.mysensors.org/) API.
 
