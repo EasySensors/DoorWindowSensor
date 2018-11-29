@@ -22,7 +22,7 @@
  - Optional si7020 and bh1750 footprints
 
 
-If you find the Wireless Door/Window  Sensor useful, it is possible to buy it here: [link to buy](https://www.tindie.com/products/easySensors/arduino-ide-compatible-wireless-switch-box)
+If you find the Wireless Door/Window  Sensor useful, it is possible to buy it here: [link to buy](https://www.tindie.com/products/easySensors/arduino-doorwindow-sensor-radio-rfm69-nrf24l01)
 
 **Pin out:** 
 
