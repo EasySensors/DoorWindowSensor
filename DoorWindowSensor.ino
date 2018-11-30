@@ -89,7 +89,7 @@ MyMessage msgSensorState;
 
 void before()
 {
-  analogReference(INTERNAL); // DEFAULT
+  //analogReference(DEFAULT); // DEFAULT
 
   #ifdef  MY_RADIO_RFM69
     /*  RFM reset pin is 9
@@ -157,7 +157,26 @@ void setup() {
 
 }
 
-// Loop will iterate on changes if the BUTTON_PINs wake up the controller/node
+long readVcc() {
+  // Read 1.1V reference against AVcc
+  // set the reference to Vcc and the measurement to the internal 1.1V reference
+
+  ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+  
+  delay(5); // Wait for Vref to settle
+  ADCSRA |= _BV(ADSC); // Start conversion
+  while (bit_is_set(ADCSRA,ADSC)); // measuring
+
+  uint8_t low  = ADCL; // must read ADCL first - it then locks ADCH  
+  uint8_t high = ADCH; // unlocks both
+
+  long result = (high<<8) | low;
+
+  result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000
+  return result; // Vcc in millivolts
+}
+
+
 void loop(){ 
 
   uint8_t retry = 5;
@@ -172,13 +191,12 @@ void loop(){
     // Show LED status
     (SensorValue) ? blinkRedSensorLed() : blinkGreenSensorLed();
     wait(100);    
-  // Get the battery Voltage
-  int sensorValue = analogRead(BATTERY_SENSE_PIN);
-  /* 1M, 470K divider across batteries
-   * 610 ~ 100 % is close to 6.1 V
-   * 400 ~ 0 % is close to 4V
+
+  /* Get battery level in mV
+   *  2.4V - lowest level, 3v - max level
    */
-  int batteryPcnt = (sensorValue - 400)  / 2;
+  int sensorValue = readVcc();
+  int batteryPcnt = 100 * (sensorValue - 2400) / 600;
   
   batteryPcnt = batteryPcnt > 0 ? batteryPcnt:0; // Cut down negative values. Just in case the battery goes below 4V and the node still working. 
   batteryPcnt = batteryPcnt < 100 ? batteryPcnt:100; // Cut down more than "100%" values. In case of ADC fluctuations. 
