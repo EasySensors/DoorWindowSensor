@@ -10,12 +10,12 @@
 
 ## Specification: ##
  - Encloosure Dimensions l95 x w40 x h20 Magnet Dimensions l95 x w14 x h20
- - Sleep current consumption 5uA
+ - Sleep current consumption ~1uA
  - Optional Authentication security - Atmel ATSHA204A Crypto Authentication Chip 
  - LED indicator
  - RFM69-CW (low power consumption version) 868\915 MHz Radio transceiver
  - Footprint available for replacing  RFM69-CW with NRF24L01+ 2.4 GHz radio
- - Battery voltage sensor (via divider)
+ - Battery voltage sensor via Vref internal readings [link to article](https://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/)
  - FTDI header for programming
  - Battery connectors: 2 x AAA batteries
  - Reverse polarity protection
