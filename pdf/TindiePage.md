@@ -1,5 +1,4 @@
-
-### The Wireless Door/Window  Sensor (CW1DB3A) Detects if window or door is opened . It is based on Arduino IDE compatible (the Atmel ATMega328P 8Mhz) microcontroller with HopeRF RFM69 868\915 or NRF24L01+ 2.4 GHz radio on-board. Best suitable for Home Automation, IOT. You may think of it as Arduino Pro Mini plus all the items in the picture below:
+### The Wireless Door/Window  Sensor (CW1DB3A) Detects if window or door is opened . It is based on Arduino IDE compatible (the Atmel ATMega328P 8Mhz) microcontroller with HopeRF RFM69 868\915 or NRF24L01+ 2.4 GHz radio on-board. Best suitable for Home Automation, IOT. 
 
 ## Features
 - Fully compatible with the Arduino IDE (PRO MINI 8 MG Hz)
@@ -8,13 +7,13 @@
 - Optional NRF24L01+ 2.4 GHz radio
 - Optional onboard Atmel ATSHA204A CryptoAuthentication chip makes communication with the Switch Box very secured. ATSHA204A implements secured handshake and if handshake fails the Switch Box will not executing any command sent to it
 - Programming header is FTDI, TTL Serial. For programming you need to have USB TTL Serial – FTDI adaptor
-- Battery voltage sensor (via divider)
+- Battery voltage sensor via Vref internal readings   [link to article](https://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/)
 - MySensors compatible. You can use superb set of scripts and libraries from [mysensors.org](http://www.mysensors.org) project  and convert the nodes into reliable network of little home sensors, relays and actuators.
 - LED indicator
 - Battery connectors: 2 x AAA batteries
 - Reverse polarity protection
-- Sleep current is 3 uA
-- Expected life time 3-5 years or more if good batteries used.
+- Sleep current is ~1 uA
+- Expected life time 10 years if good batteries used (reporting door openning every hour 24 hrs a day for 10 years).
 
 Comes with Arduino example sketch door.ino. It uses [MySensors](https://www.mysensors.org/) API.
 
