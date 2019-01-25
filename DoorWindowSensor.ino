@@ -124,7 +124,7 @@ void blinkRedSensorLed(){
   digitalWrite(RED_LED, LOW);
 }
 void blinkSensorLedOK(){
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 1; i++) {
     digitalWrite(GREEN_LED, HIGH);
     wait(30);
     digitalWrite(GREEN_LED, LOW);
@@ -181,7 +181,7 @@ void loop(){
 
   uint8_t retry = 5;
     byte SensorValue = digitalRead(SENSOR_INTERUPT_PIN);
-    while (!send(msgSensorState.set(digitalRead(SensorValue)), true)  && retry > 0) { 
+    while (!send(msgSensorState.set(SensorValue), true)  && retry > 0) { 
       // send did not go through, try  "uint8_t retry = 5" more times
       //wait(100); 
       retry--;
