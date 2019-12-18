@@ -33,7 +33,7 @@ D3 Interrupt1 | Connected to magned (hall) sensor
 Interrupt 1 | Occurs when sensor detects change in the magnetic field
 A3 |	Connected to  ATSHA204A
 
-
+![enter image description here](https://github.com/EasySensors/easyPIRmultisensorsBox2/blob/master/pics/FTDIpinout.png?raw=true)
 
 **Arduino IDE Settings**
 
