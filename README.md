@@ -7,31 +7,51 @@
 
 
 ## Specification: ##
- - Encloosure Dimensions l95 x w40 x h20 Magnet Dimensions l95 x w14 x h20
- - Sleep current consumption ~1uA
- - Optional Authentication security - Atmel ATSHA204A Crypto Authentication Chip 
- - LED indicator
- - RFM69-CW (low power consumption version) 868\915 MHz Radio transceiver
- - Footprint available for replacing  RFM69-CW with NRF24L01+ 2.4 GHz radio
- - Battery voltage sensor via Vref internal readings [link to article](https://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/)
- - FTDI header for programming
- - Battery connectors: 2 x AAA batteries
- - Reverse polarity protection
- - Optional si7020 and bh1750 footprints
 
-
-If you find the Wireless Door/Window  Sensor useful, it is possible to buy it here: [link to buy](https://www.tindie.com/products/easySensors/arduino-doorwindow-sensor-radio-rfm69-nrf24l01)
+ - MCU Atmel ATMega328P 8MHz) microcontroller
+ - Radio- HopeRF RFM 69 CW or RFM 69 HCW or RFM 95 LoRa  (915, 868 0r 433 MHz) radio on board
+ - Enclosure dimensions 95mm*40mm*20mm 
+ - Powered by two AA batteries
+ - Booster converter alows to work from batteries drained as low as 0.7V combined
+ - Wide operating temperature range. Tested -20 +40 Celsius
+ - PIR sensor Am312 
+ - Temperature and humidity sensor Si7021 
+ - High Accuracy Temperature Sensor ±0.4 °C (max), –10 to 85 °C
+ - Precision Relative Humidity Sensor ± 3% RH (max), 0–80% RH
+ - Light sensor BH1750,  spectral responsibility is approximately human eye response.
+ - Authentication security - Atmel ATSHA204A Crypto Authentication Chip
+ - Dualoptiboot bootloader. Implements over the air (OTA) firmware update ability
+ - FTDI  header for programming
+ - Reverse polarity protection.
+ - Arduino pins A0 A1 have pads on PCB for any special needs.
+ - PIR triggers interrupt PCINT23 D7
+ - Magnet sensor triggers hardware interrupt 1
 
 **Pin out:** 
 
+
 Arduino Pins|	Description
 ------------|--------------
-A6 |	Connected to Battery voltage sensor (via divider) 
-D5 | green LED
-D6 | red LED
-D3 Interrupt1 | Connected to magned (hall) sensor
-Interrupt 1 | Occurs when sensor detects change in the magnetic field
+A0, A1 |	Available ARDUINO analog GPIO / DIGITAL GPIO as PCB pads close to radio module
+A6 |	Connected to Battery voltage sensor (via divider) 3M/470k 
+A4 |	Connected to sensors i2c
+A5 |	Connected to sensors i2c
+A6 |	Battery sensing voltage divider 1M/470k
 A3 |	Connected to  ATSHA204A
+D3 |	Connected to  Magnet sensor
+D4 |	Connected to RFM 69/95 DIO1 
+D5 | Connected to  GREEN_LED_PIN
+D6 | Connected to  RED_LED_PIN
+D7 | Connected to  PIR sensor footprint PCINT23 
+D8 |	Connected to CS FLASH chip (OTA) M25P40
+D2 |	Connected to RFM 69/95 DIO0 
+D9 | Connected to RFM 69/95 Reset pin 
+D10 |	Connected to RFM 69/95 CS/NSS
+D11 |	Connected to  MOSI
+D12 |	Connected to  MISO
+D13 |	Connected to  SCK
+
+
 
 ![enter image description here](https://github.com/EasySensors/easyPIRmultisensorsBox2/blob/master/pics/FTDIpinout.png?raw=true)
 
