@@ -14,8 +14,7 @@
  - Powered by two AA batteries
  - Booster converter alows to work from batteries drained as low as 0.7V combined
  - Wide operating temperature range. Tested -20 +40 Celsius
- - PIR sensor Am312 
- - Temperature and humidity sensor Si7021 
+  - Temperature and humidity sensor Si7021 
  - High Accuracy Temperature Sensor ±0.4 °C (max), –10 to 85 °C
  - Precision Relative Humidity Sensor ± 3% RH (max), 0–80% RH
  - Light sensor BH1750,  spectral responsibility is approximately human eye response.
