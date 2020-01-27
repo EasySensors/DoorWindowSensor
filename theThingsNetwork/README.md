@@ -2,6 +2,7 @@
 
 Decoder part
 
+```c
 function Decoder(bytes, port) {
   // Decode an uplink message from a buffer
   // (array) of bytes to an object of fields.
@@ -16,7 +17,7 @@ function Decoder(bytes, port) {
 
 return decoded;
 }
-
+```
 
 ![ABP settings](https://github.com/EasySensors/DoorWindowSensor/blob/master/pics/decoder.png?raw=true)
 
