@@ -1,5 +1,6 @@
 
 
+
 /*******************************************************************************
  * Skectch is baesed on   ABP example sketches from https://github.com/matthijskooijman/arduino-lmic 
  *
@@ -7,7 +8,7 @@
  *
  *
  * Note: LoRaWAN per sub-band duty-cycle limitation is enforced (1% in g1, 
- *  0.1% in g2). 
+*  0.1% in g2). 
  *
  * Change DEVADDR to a unique address! 
  * See http://thethingsnetwork.org/wiki/AddressSpace
@@ -22,6 +23,7 @@
 
 // https://github.com/rocketscream/Low-Power
 #include <LowPower.h>
+// https://github.com/matthijskooijman/arduino-lmic
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
@@ -71,6 +73,31 @@ static int16_t oldTemp = 0, temp;
 
 #define RED_LED_PIN 6 //5
 #define GREEN_LED_PIN 5 //7
+
+
+
+#include <EEPROM.h>
+
+// http://playground.arduino.cc/Code/EEPROMWriteAnything
+template <class T> int EEPROM_writeAnything(int ee, const T& value)
+{
+  //return 1;
+    const byte* p = (const byte*)(const void*)&value;
+    unsigned int i;
+    for (i = 0; i < sizeof(value); i++)  
+          EEPROM.write(ee++, *p++);
+    return i;
+}
+
+template <class T> int EEPROM_readAnything(int ee, T& value)
+{
+  //return 1;
+    byte* p = (byte*)(void*)&value;
+    unsigned int i;
+    for (i = 0; i < sizeof(value); i++)
+          *p++ = EEPROM.read(ee++);
+    return i;
+}
 
 
 void intToBytes(byte *buf, int32_t i, uint8_t byteSize) {
@@ -148,6 +175,9 @@ void onEvent (ev_t ev) {
       case EV_TXCOMPLETE:
           // use this event to keep track of actual transmissions
           evTxCompleteFlag = true;
+
+          EEPROM_writeAnything(10, LMIC.seqnoUp);
+          
           Serial.print("Event EV_TXCOMPLETE, time: ");
           Serial.println(millis() / 1000);
           if(LMIC.dataLen) { // data received in rx slot after tx
@@ -188,6 +218,15 @@ void setup() {
   os_init();
   // Reset the MAC state. Session and pending data transfers will be discarded.
   LMIC_reset();
+
+  EEPROM_readAnything(10,  LMIC.seqnoUp);
+  if (LMIC.seqnoUp == 0xFFFFFFFF){
+    LMIC.seqnoUp = 0;
+    EEPROM_writeAnything(10, (u4_t) 0);
+  }
+  Serial.print(F("FCnt "));
+  Serial.println(LMIC.seqnoUp);
+  
   // Set static session parameters. Instead of dynamically establishing a session 
   // by joining the network, precomputed session parameters are be provided.
   LMIC_setSession (0x1, DEVADDR, (uint8_t*)DEVKEY, (uint8_t*)ARTKEY);
@@ -279,7 +318,7 @@ void loop() {
           wakeUpMillisStarted = millis();
           }
     // something takes too long let's sleep. 
-    if ( millis() - wakeUpMillisStarted > 15000 ){
+    if ( millis() - wakeUpMillisStarted > 600000 ){
           Serial.println("Sleeping by timeout...");
           digitalWrite(RED_LED_PIN,0);
           digitalWrite(GREEN_LED_PIN,1);
