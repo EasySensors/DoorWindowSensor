@@ -1,6 +1,5 @@
 
 
-
 /*******************************************************************************
  * Skectch is baesed on   ABP example sketches from https://github.com/matthijskooijman/arduino-lmic 
  *
@@ -59,6 +58,8 @@ static const u4_t DEVADDR =  0x2601190E; //0E190126 0x2601190E <-- Change this a
 
 uint8_t mydata[2] = {0,1};
 
+
+// https://github.com/sparkfun/SparkFun_Si701_Breakout_Arduino_Library
 #include "SparkFun_Si7021_Breakout_Library.h"
 //Create Instance of HTU21D or SI7021 temp and humidity sensor and MPL3115A2 barrometric sensor
 Weather sensor;
